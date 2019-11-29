@@ -4,12 +4,12 @@
 .nav.justify-content-end
   = link_to '一覧へ', topics_path, class: 'nav-link my-3'
 
-.d-flex.justify-content-between
+.d-flex.justify-content-between.mb-4
   h1= @topic.title
   div.mt-2
     = link_to '編集', edit_topic_path(@topic), class: 'btn btn-primary mr-3'
     = link_to '削除', @topic, method: :delete, data: { confirm: "タスク「#{@topic.title}」を削除します。よろしいですか？" },
-    class: 'btn btn-danger'
+      class: 'btn btn-danger'
 
 - if @comments.any?
   - @comments.each_with_index do |comment, i|
@@ -17,9 +17,14 @@
       div
         span= "#{i+1}：#{comment.name}  #{comment.created_at}"
         br
-        span= comment.body
-      div= link_to '削除', comment, method: :delete, data: { confirm: "コメントを削除しますか？" },
-      class: 'btn btn-danger'
+        span= simple_format(h(comment.body))
+      .d-flex
+        div= link_to '返信', nil, class: 'btn btn-outline-secondary mt-1 mr-2'
+        div= link_to '削除', comment, method: :delete, data: { confirm: "コメントを削除しますか？" },
+          class: 'btn btn-outline-danger mt-1'
+- else
+  p
+    i.text-muted まだコメントはありません
 p.mt-5
   b コメントを投稿する
 
