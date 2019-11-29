@@ -10,5 +10,7 @@ html
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand BulletinBoard
-    .container
-      / = yield
+    .container.mt-2
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

@@ -1,2 +1,20 @@
-h1 Topics#index
-p Find me in app/views/topics/index.html.slim
+h1 スレッド一覧
+
+= link_to '新規スレッド', new_topic_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th タイトル
+      th 投稿日時
+      th
+  tbody
+    - @topics.each do |topic|
+      tr
+        td= link_to topic.title, topic_path(topic)
+        td= topic.created_at
+        td
+          = link_to '編集', edit_topic_path(topic), class: 'btn btn-primary mr-3'
+          = link_to '削除', topic, method: :delete, data: { confirm: "タスク「#{topic.title}」を削除します。よろしいですか？" },
+          class: 'btn btn-danger'

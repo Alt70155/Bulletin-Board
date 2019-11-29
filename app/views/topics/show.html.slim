@@ -1,2 +1,9 @@
-h1 Topics#show
-p Find me in app/views/topics/show.html.slim
+.nav.justify-content-end
+  = link_to '一覧へ', topics_path, class: 'nav-link my-3'
+
+.d-flex.justify-content-between
+  h1= @topic.title
+  div.mt-2
+    = link_to '編集', edit_topic_path, class: 'btn btn-primary mr-3'
+    = link_to '削除', @topic, method: :delete, data: { confirm: "タスク「#{@topic.title}」を削除します。よろしいですか？" },
+    class: 'btn btn-danger'
