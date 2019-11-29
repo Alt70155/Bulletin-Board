@@ -5,6 +5,9 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @comment = @topic.comments.build
+    @comments = @topic.comments.all
+    session[:topic_id] = @topic.id
   end
 
   def new

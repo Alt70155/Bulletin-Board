@@ -1,9 +1,31 @@
+- if flash[:success].present?
+  .alert.alert-success= flash[:success]
+
 .nav.justify-content-end
   = link_to '一覧へ', topics_path, class: 'nav-link my-3'
 
 .d-flex.justify-content-between
   h1= @topic.title
   div.mt-2
-    = link_to '編集', edit_topic_path, class: 'btn btn-primary mr-3'
+    = link_to '編集', edit_topic_path(@topic), class: 'btn btn-primary mr-3'
     = link_to '削除', @topic, method: :delete, data: { confirm: "タスク「#{@topic.title}」を削除します。よろしいですか？" },
     class: 'btn btn-danger'
+
+- if @comments.any?
+  - @comments.each_with_index do |comment, i|
+    .d-flex.justify-content-between.border.my-2.p-2
+      div
+        span= "#{i+1}：#{comment.name}  #{comment.created_at}"
+        br
+        span= comment.body
+      div= link_to '削除', comment, method: :delete, data: { confirm: "コメントを削除しますか？" },
+      class: 'btn btn-danger'
+p.mt-5
+  b コメントを投稿する
+
+= form_with model: @comment, local: true do |f|
+  .form-group
+    = f.text_field :name, class: 'form-control', id: 'name', placeholder: '名前'
+  .form-group
+    = f.text_area :body, class: 'form-control', id: 'body', placeholder: '本文', size: "10x7"
+  = f.submit '投稿', class: 'btn btn-primary'
