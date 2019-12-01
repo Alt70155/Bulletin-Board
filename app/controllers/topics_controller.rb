@@ -19,9 +19,12 @@ class TopicsController < ApplicationController
   end
 
   def create
-    topic = Topic.new(topic_params)
-    topic.save!
-    redirect_to topics_url, notice: "スレッド「#{topic.title}」を投稿しました。"
+    @topic = Topic.new(topic_params)
+    if @topic.save
+      redirect_to @topic, notice: "スレッド「#{@topic.title}」を投稿しました。"
+    else
+      render :new
+    end
   end
 
   def update

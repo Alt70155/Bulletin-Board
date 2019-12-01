@@ -1,11 +1,16 @@
 - if flash[:success].present?
   .alert.alert-success= flash[:success]
 
+- if @comment.errors.present?
+  ul#error_explanation
+    - @comment.errors.full_messages.each do |message|
+      li= message
+
 .nav.justify-content-end
   = link_to '一覧へ', topics_path, class: 'nav-link my-3'
 
 .d-flex.justify-content-between.mb-4
-  h1= @topic.title
+  h2= @topic.title
   div.mt-2
     = link_to '編集', edit_topic_path(@topic), class: 'btn btn-primary mr-3'
     = link_to '削除', @topic, method: :delete, data: { confirm: "タスク「#{@topic.title}」を削除します。よろしいですか？" },
@@ -60,6 +65,6 @@ javascript:
   commentWrapperList.forEach(comment => {
     const hierarchyDepth = Number(comment.querySelector('.hierarchy_depth_retention').textContent)
     if (hierarchyDepth < 6) {
-      comment.style.marginLeft = `${hierarchyDepth * 30}px`
+      comment.style.marginLeft = `${hierarchyDepth * 60}px`
     }
   })

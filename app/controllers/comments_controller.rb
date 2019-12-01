@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   def create
     @topic = Topic.find(session[:topic_id])
     @comment = @topic.comments.build(comment_params)
+    @comment.name = '匿名' if @comment.name.length.zero?
+
     if @comment.save
       flash[:success] = 'コメントを投稿しました！'
       redirect_to @topic
