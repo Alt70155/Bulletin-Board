@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @comment = @topic.comments.build
-    @comments = @topic.comments.all
+    @comments = create_comments_hash
     session[:topic_id] = @topic.id
   end
 

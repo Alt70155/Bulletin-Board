@@ -12,16 +12,30 @@
       class: 'btn btn-danger'
 
 - if @comments.any?
-  - @comments.each_with_index do |comment, i|
-    .d-flex.justify-content-between.border.my-2.p-2
-      div
-        span= "#{i+1}：#{comment.name}  #{comment.created_at}"
-        br
-        span= simple_format(h(comment.body))
-      .d-flex
-        div= link_to '返信', nil, class: 'btn btn-outline-secondary mt-1 mr-2'
-        div= link_to '削除', comment, method: :delete, data: { confirm: "コメントを削除しますか？" },
-          class: 'btn btn-outline-danger mt-1'
+  - ct = 0
+  - @comments.each do |i, comment|
+    .comment-wrapper
+      .d-flex.justify-content-between.border.my-2.p-2
+        div
+          span= "#{i}：#{comment.name}  #{comment.created_at}"
+          br
+          span= simple_format(h(comment.body))
+          br
+          span.hierarchy_depth_retention style="display: none;"= comment.reply_path.present? ? comment.reply_path.split('/').length : 0
+        .d-flex
+          div= link_to '返信', nil, class: 'btn btn-outline-secondary mt-1 mr-2', onclick: "replyFormToggle(#{ct}); return false"
+          div= link_to '削除', comment, method: :delete, data: { confirm: "コメントを削除しますか？" }, class: 'btn btn-outline-danger mt-1'
+      .reply-form
+        - reply_path = comment.reply_path.nil? ? "#{i}" : "#{comment.reply_path}/#{i}"
+        = form_with model: @comment, local: true do |f|
+          = f.hidden_field :reply_path, value: reply_path
+          .form-group
+            = f.text_field :name, class: 'form-control', id: 'name', placeholder: '名前'
+          .form-group
+            = f.text_area :body, class: 'form-control', id: 'body', placeholder: '本文', size: "10x3"
+          = f.submit '返信', class: 'btn btn-primary mb-3'
+    - ct += 1
+
 - else
   p
     i.text-muted まだコメントはありません
@@ -33,4 +47,19 @@ p.mt-5
     = f.text_field :name, class: 'form-control', id: 'name', placeholder: '名前'
   .form-group
     = f.text_area :body, class: 'form-control', id: 'body', placeholder: '本文', size: "10x7"
-  = f.submit '投稿', class: 'btn btn-primary'
+  = f.submit '投稿', class: 'btn btn-primary mb-3'
+
+javascript:
+  const replyFormList = document.querySelectorAll('.reply-form')
+  const replyFormToggle = i => {
+    replyFormList[i].style.display = replyFormList[i].style.display === 'block' ? 'none' : 'block'
+  }
+
+  const commentWrapperList = document.querySelectorAll('.comment-wrapper')
+
+  commentWrapperList.forEach(comment => {
+    const hierarchyDepth = Number(comment.querySelector('.hierarchy_depth_retention').textContent)
+    if (hierarchyDepth < 6) {
+      comment.style.marginLeft = `${hierarchyDepth * 30}px`
+    }
+  })

@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       flash[:success] = 'コメントを投稿しました！'
       redirect_to @topic
     else
-      @comments = @topic.comments.all
+      @comments = create_comments_hash
       render 'topics/show'
     end
   end
