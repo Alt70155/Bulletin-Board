@@ -1,3 +1,6 @@
+= @x
+  / li= i.name
+
 - if flash[:success].present?
   .alert.alert-success= flash[:success]
 
@@ -25,6 +28,8 @@
           span= "#{i}：#{comment.name}  #{comment.created_at}"
           br
           span= simple_format(h(comment.body))
+          br
+          span= comment.reply_path
           br
           span.hierarchy_depth_retention style="display: none;"= comment.reply_path.present? ? comment.reply_path.split('/').length : 0
         .d-flex
