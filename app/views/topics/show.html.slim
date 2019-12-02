@@ -29,8 +29,6 @@
           br
           span= simple_format(h(comment.body))
           br
-          span= comment.reply_path
-          br
           span.hierarchy_depth_retention style="display: none;"= comment.reply_path.present? ? comment.reply_path.split('/').length : 0
         .d-flex
           div= link_to '返信', nil, class: 'btn btn-outline-secondary mt-1 mr-2', onclick: "replyFormToggle(#{ct}); return false"
