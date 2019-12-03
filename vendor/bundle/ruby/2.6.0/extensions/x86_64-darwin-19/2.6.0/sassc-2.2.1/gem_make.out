@@ -1,5 +1,5 @@
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
-/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191202-86945-15om5jd.rb extconf.rb
+/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191203-11870-1ckm35b.rb extconf.rb
 creating Makefile
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
@@ -72,4 +72,4 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20191202-86945-uojk13/sassc
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20191203-11870-1oxmfoc/sassc

@@ -1,5 +1,5 @@
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/msgpack-1.3.1/ext/msgpack
-/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191202-86945-4svr1n.rb extconf.rb
+/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191203-11870-1mownvr.rb extconf.rb
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -39,4 +39,4 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/msgpack-1.3.1/ext/msgpack
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20191202-86945-t98na2/msgpack
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20191203-11870-1uf5s48/msgpack

@@ -1,5 +1,5 @@
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
-/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191202-86945-152q0xb.rb extconf.rb
+/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191203-11870-1gyankx.rb extconf.rb
 creating Makefile
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
@@ -12,4 +12,4 @@ linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20191202-86945-dma8sd/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20191203-11870-1t27fkg/bootsnap

@@ -1,5 +1,5 @@
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/pg-1.1.4/ext
-/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191203-8478-1ahqq1i.rb extconf.rb
+/Users/chika/.rbenv/versions/2.6.3/bin/ruby -I /Users/chika/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191203-11870-sym22n.rb extconf.rb
 checking for pg_config... yes
 Using config values from /usr/local/bin/pg_config
 checking for libpq-fe.h... yes
@@ -132,4 +132,4 @@ linking shared-object pg_ext.bundle
 
 current directory: /Users/chika/Documents/Bulletin-Board/vendor/bundle/ruby/2.6.0/gems/pg-1.1.4/ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20191203-8478-lf4bb
+/usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20191203-11870-1uhxb88
