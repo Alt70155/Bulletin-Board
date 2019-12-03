@@ -49,3 +49,4 @@ production:
   database: Bulletin-Board_production
   username: Bulletin-Board
   password: <%= ENV['BULLETIN-BOARD_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
